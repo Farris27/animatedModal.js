@@ -33,9 +33,7 @@
             CLOSE MODAL
         </div>
 
-        <div class="modal-content">
-            <!--Your modal content goes here-->
-        </div>
+        <div class="modal-content"></div>
     </div>
 
     <!--DEMO02-->
@@ -45,24 +43,24 @@
             CLOSE MODAL
         </div>
 
-        <div class="modal-content">
-            <!--Your modal content goes here-->
-        </div>
+        <div class="modal-content"></div>
     </div>
 
 
     <script src="js/jquery.min.js"></script>
-    <script src="js/animatedModal.min.js"></script>
+    <script src="js/animatedModalPureJS.js"></script>
     <script>
         //demo 01
-        $("#demo01").animatedModal();
+        var modalPlugin = new AnimatedModal('#demo01', {
+            color: 'red'
+        })
 
-        //demo 02
-        $("#demo02").animatedModal({
+        // demo 02
+        var modalPlugin2 = new AnimatedModal('#demo02', {
             modalTarget: 'modal-02',
             animatedIn: 'lightSpeedIn',
             animatedOut: 'bounceOutDown',
-            color: '#3498db',
+            color: '#000',
             // Callbacks
             beforeOpen: function() {
                 console.log("The animation was called");
