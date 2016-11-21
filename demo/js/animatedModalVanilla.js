@@ -8,7 +8,6 @@
 
 
 function AnimatedModal(el, options) {
-    debugger;
     var settings = this.initSettings(options);
     this.id = this.$('body').querySelector('#' + this.settings.modalTarget);
 
@@ -116,6 +115,7 @@ AnimatedModal.prototype = {
         var id = this.id;
         var idConc = '#' + id.getAttribute('id');
         var settings = this.settings;
+        debugger;
         if (href == idConc) {
             if (id.classList.contains(settings.modalTarget + '-off')) {
                 id.classList.remove(settings.animatedOut);
@@ -168,6 +168,7 @@ AnimatedModal.prototype = {
 
     afterOpen: function(e) {
         e.target.removeEventListener(e.type, arguments.callee);
+        this.id.style['z-index'] = this.settings.zIndexIn;
         this.settings.afterOpen(); //afterOpen
     }
 }

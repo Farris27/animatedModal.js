@@ -8,16 +8,13 @@
 
 
 function AnimatedModal(el, options) {
-    debugger;
-    var settings = this.initSettings(options);
+    this.initSettings(options);
     this.id = this.$('body').querySelector('#' + this.settings.modalTarget);
 
     this.modal = document.querySelector(el);
     this.closeBtn = this.$('.close-' + this.settings.modalTarget);
-    // Default Classes
     this.id.classList.add('animated');
     this.id.classList.add(this.settings.modalTarget + '-off');
-
 
     for (var key in this.initStyles()) {
         this.id.style[key] = this.initStyles()[key];
@@ -25,7 +22,6 @@ function AnimatedModal(el, options) {
 
     this.modal.addEventListener('click', this.modalOnClick.bind(this));
     this.closeBtn.addEventListener('click', this.closeModal.bind(this));
-
 }
 
 
@@ -116,6 +112,7 @@ AnimatedModal.prototype = {
         var id = this.id;
         var idConc = '#' + id.getAttribute('id');
         var settings = this.settings;
+        debugger;
         if (href == idConc) {
             if (id.classList.contains(settings.modalTarget + '-off')) {
                 id.classList.remove(settings.animatedOut);
@@ -168,6 +165,7 @@ AnimatedModal.prototype = {
 
     afterOpen: function(e) {
         e.target.removeEventListener(e.type, arguments.callee);
+        this.id.style['z-index'] = this.settings.zIndexIn;
         this.settings.afterOpen(); //afterOpen
     }
 }
