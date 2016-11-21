@@ -112,7 +112,6 @@ AnimatedModal.prototype = {
         var id = this.id;
         var idConc = '#' + id.getAttribute('id');
         var settings = this.settings;
-        debugger;
         if (href == idConc) {
             if (id.classList.contains(settings.modalTarget + '-off')) {
                 id.classList.remove(settings.animatedOut);
